@@ -1,11 +1,20 @@
 import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+let appInstance = null
 
-app.use(router)
+export function mount(selector) {
+  appInstance = createApp(App)
+  appInstance.use(router)
+  appInstance.mount(selector)
+  return () => unmount()
+}
 
-app.mount('#app')
+export function unmount() {
+  if (appInstance) {
+    appInstance.unmount()
+    appInstance = null
+  }
+}

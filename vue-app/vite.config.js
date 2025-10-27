@@ -17,4 +17,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  build: {
+    lib: {
+      entry: './src/main.js',
+      name: 'VueApp',
+      fileName: 'vue-entry',
+      formats: ['es']
+    },
+    outDir: '../dist/vue-app',
+    emptyOutDir: true,
+    cssCodeSplit: false,
+  }
 })

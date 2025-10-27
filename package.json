@@ -1,0 +1,17 @@
+{
+    "name": "react-vs-vue",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": [
+        "shell",
+        "react-app",
+        "vue-app"
+    ],
+    "scripts": {
+         "dev": "npm run build && npm run dev --workspace shell",
+        "build": "npm run build:vue && npm run build:react && npm run build:shell",
+        "build:vue": "npm run build --workspace vue-app",
+        "build:react": "npm run build --workspace react-app",
+        "build:shell": "npm run build --workspace shell"
+    }
+}

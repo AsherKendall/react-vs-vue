@@ -1,0 +1,43 @@
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+
+export default defineConfig({
+  plugins: [vue()],
+  root: './',
+  base: '/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      'vue': 'vue/dist/vue.esm-bundler.js'
+    },
+  },
+  server: {
+    port: 5173,
+     fs: {
+      // allow access to project root and subapp builds
+      allow: [
+        '..',
+        path.resolve(__dirname, '../vue-app/dist'),
+        path.resolve(__dirname, '../dist/react-app'),
+        path.resolve(__dirname, '../dist/shell'),
+      ]
+    }
+  },
+  build: {
+    outDir: '../dist/shell',
+    emptyOutDir: true,
+    rollupOptions: {
+      external: [
+        '../dist/vue-app/vue-entry.js',
+        '../dist/react-app/react-entry.js',
+      ],
+    },
+  },
+  optimizeDeps: {
+    exclude: [
+      '../dist/vue-app/vue-entry.js',
+      '../dist/react-app/react-entry.js',
+    ],
+  },
+})
