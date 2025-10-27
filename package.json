@@ -14,7 +14,6 @@
         "build:vue": "npm run build --workspace vue-app",
         "build:react": "npm run build --workspace react-app",
         "build:shell": "npm run build --workspace shell",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "preview": "vite preview"
     }
 }
