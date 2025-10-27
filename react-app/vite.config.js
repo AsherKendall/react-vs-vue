@@ -10,7 +10,6 @@ const __dirname = dirname(__filename);
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
   build: {
     outDir: '../dist/react-app',
     lib: {
