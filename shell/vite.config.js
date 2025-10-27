@@ -25,8 +25,8 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: '../dist/shell',
-    emptyOutDir: true,
+    outDir: '../dist',
+    emptyOutDir: false,
     rollupOptions: {
       external: [
         '../dist/vue-app/vue-entry.js',
