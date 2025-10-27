@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
   root: './',
-  base: '/',
+  base: '/react-vs-vue/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
