@@ -18,8 +18,8 @@ export default defineConfig({
       // allow access to project root and subapp builds
       allow: [
         '..',
-        path.resolve(__dirname, '../vue-app/dist'),
         path.resolve(__dirname, '../dist/react-app'),
+        path.resolve(__dirname, '../dist/vue-app'),
         path.resolve(__dirname, '../dist/shell'),
       ]
     }

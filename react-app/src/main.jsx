@@ -1,10 +1,20 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+let root = null
+
+export function mount(selector) {
+  root = ReactDOM.createRoot(document.querySelector(selector))
+  root.render(<div id="react-root"><StrictMode><RouterProvider router={router}/></StrictMode></div>)
+  return () => unmount()
+}
+
+export function unmount() {
+  if (root) {
+    root.unmount()
+    root = null
+  }
+}
