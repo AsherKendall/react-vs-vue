@@ -8,7 +8,14 @@ let root = null
 
 export function mount(selector) {
   root = ReactDOM.createRoot(document.querySelector(selector))
-  root.render(<div id="react-root"><StrictMode><HashRouter  router={router}/></StrictMode></div>)
+  root.render(<div id="react-root"><StrictMode>
+    <HashRouter  router={router}> 
+      <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            {/* Add more routes as needed */}
+          </Routes>
+  <HashRouter/> </StrictMode></div>)
   return () => unmount()
 }
 
