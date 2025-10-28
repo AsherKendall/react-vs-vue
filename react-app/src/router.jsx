@@ -13,6 +13,6 @@ export const router = createBrowserRouter(
     // { path: '/about', element: <About /> }
   ],
   {
-    basename: '/react-vs-vue/react'
+    basename: '/react-vs-vue/react/'
   }
 )
