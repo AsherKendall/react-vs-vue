@@ -1,21 +1,22 @@
 import { StrictMode } from 'react'
 import './index.css'
-import ReactDOM from 'react-dom/client'
-import { HashRouter  } from 'react-router-dom'
-import { router } from './router'
+import {createRoot} from 'react-dom/client'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
+import App from './App'
+import About from './page/About'
 
 let root = null
 
 export function mount(selector) {
-  root = ReactDOM.createRoot(document.querySelector(selector))
+  root = createRoot(document.querySelector(selector))
   root.render(<div id="react-root"><StrictMode>
-    <HashRouter  router={router}> 
-      <Routes>
-            <Route path="/" element={<Home />} />
+    <HashRouter  basename='/react'> 
+      <Routes >
+            <Route path="/" element={<App />} />
             <Route path="/about" element={<About />} />
-            {/* Add more routes as needed */}
-          </Routes>
-  <HashRouter/> </StrictMode></div>)
+            <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+  </HashRouter> </StrictMode></div>)
   return () => unmount()
 }
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+ import { Link } from 'react-router-dom';
 import './App.css'
 import './index.css'
 
@@ -12,6 +13,7 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <Link to={'/about'}>About Page</Link>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
