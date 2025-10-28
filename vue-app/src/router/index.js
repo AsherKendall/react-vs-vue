@@ -2,8 +2,12 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHashHistory('/react-vs-vue/vue'),
+  history: createWebHashHistory('/react-vs-vue/vue/'),
   routes: [
+    {
+      path: '/vue/',
+      redirect: '/'
+    },
     {
       path: '/',
       name: 'home',

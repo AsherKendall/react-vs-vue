@@ -27,12 +27,12 @@ const ReactWrapper = {
 
 const routes = [
   { path: '/', redirect: '/vue' },
-  { path: '/vue/:pathMatch(.*)*', component: VueWrapper },
+  { path: '/vue/:pathMatch(.*)*', name:'vue', component: VueWrapper },
   { path: '/react/:pathMatch(.*)*', component: ReactWrapper }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory('/react-vs-vue'),
+  history: createWebHashHistory('/react-vs-vue/'),
   routes
 })
 

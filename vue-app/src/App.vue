@@ -14,7 +14,7 @@ import './assets/main.css'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <a href="#/react">Go to React App</a>
+        <a href="/react">Go to React App</a>
       </nav>
     </div>
   </header>
