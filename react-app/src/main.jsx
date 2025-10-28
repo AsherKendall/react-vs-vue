@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import './index.css'
 import {createRoot} from 'react-dom/client'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
@@ -9,14 +8,13 @@ let root = null
 
 export function mount(selector) {
   root = createRoot(document.querySelector(selector))
-  root.render(<div id="react-root"><StrictMode>
+  root.render(<div id="react-root">
     <HashRouter  basename='/react'> 
-      <Routes >
-            <Route path="/" element={<App />} />
+      <Routes>
+            <Route path="/" element={<App />} errorElement={<div>Something went wrong in React Router</div>} />
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-  </HashRouter> </StrictMode></div>)
+  </HashRouter></div>)
   return () => unmount()
 }
 
