@@ -1,43 +1,69 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import './assets/main.css'
-import { Menubar } from 'primevue';
+import { Menubar } from 'primevue'
 
 const items = [
   {
     label: 'Home',
-    to: '/'
-  }
-
-      ]
+    route: '/',
+    icon: 'pi pi-home',
+  },
+  {
+    label: 'About',
+    route: '/about',
+  },
+  {
+    label: 'React',
+    url: '#/react',
+  },
+]
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <Menubar id="overlay_menu" :model="items"/>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <a href="#/react">Go to React App</a>
-      </nav>
-    </div>
+    <Menubar id="menubar" :model="items">
+      <template #item="{ item, props, hasSubmenu }">
+        <RouterLink v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+          <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+            <span v-if="item.icon" :class="item.icon" />
+            <span>{{ item.label }}</span>
+          </a>
+        </RouterLink>
+        <a v-ripple v-else :href="item.url" :target="item.target" v-bind="props.action">
+          <span v-if="item.icon" :class="item.icon" />
+          <span>{{ item.label }}</span>
+          <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down" />
+        </a>
+      </template>
+    </Menubar>
   </header>
 
   <RouterView />
 </template>
 
-
-
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+body {
+  padding-top: 50px;
+}
+.p-menubar {
+  padding: 0px;
+  height: 50px;
+}
+#menubar {
+  position: fixed;
+  left: 1px;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  z-index: 1000;
+}
+a span {
+  text-align: center;
 }
 
 .logo {

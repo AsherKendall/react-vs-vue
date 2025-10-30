@@ -1,17 +1,17 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createMemoryHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHashHistory('/react-vs-vue/vue/'),
+  history: createMemoryHistory('/react-vs-vue/vue/'),
   routes: [
     {
       path: '/vue/',
-      redirect: '/'
+      redirect: '/',
     },
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/about',
