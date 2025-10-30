@@ -2,12 +2,22 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import './assets/main.css'
+import { Menubar } from 'primevue';
+
+const items = [
+  {
+    label: 'Home',
+    to: '/'
+  }
+
+      ]
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
+    <Menubar id="overlay_menu" :model="items"/>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
@@ -21,6 +31,8 @@ import './assets/main.css'
 
   <RouterView />
 </template>
+
+
 
 <style scoped>
 header {
