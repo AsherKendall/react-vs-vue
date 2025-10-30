@@ -8,6 +8,7 @@ import { definePreset } from '@primeuix/themes'
 import Ripple from 'primevue/ripple'
 
 let appInstance = null
+let hashListener = null
 
 const customPreset = definePreset(Material, {
   semantic: {
@@ -30,6 +31,7 @@ const customPreset = definePreset(Material, {
 
 export function mount(selector, initialPath = '/') {
   appInstance = createApp(App)
+  // Add Prime Vue Themeing and Ripple Effect
   appInstance.use(PrimeVue, {
     theme: {
       preset: customPreset,
@@ -38,16 +40,31 @@ export function mount(selector, initialPath = '/') {
   appInstance.directive('ripple', Ripple)
   appInstance.use(router)
   router.push(initialPath).catch(() => {})
+  let updatingFromShell = false
 
+  // Whenever Vue navigates, update shell hash
   router.afterEach((to) => {
-    const newPath = to.fullPath
-    const currentHash = window.location.hash
-    const desiredHash = `#/vue${newPath}`
-
-    if (currentHash !== desiredHash) {
+    if (updatingFromShell) return
+    const desiredHash = `#/vue${to.fullPath}`
+    if (window.location.hash !== desiredHash) {
       window.location.hash = desiredHash
     }
   })
+
+  // ---- Sync Shell URL -> Vue router ----
+  hashListener = () => {
+    const hash = window.location.hash || ''
+    if (!hash.startsWith('#/vue')) return
+
+    const match = hash.match(/^#\/vue(\/.*)?$/)
+    const vueSubPath = match?.[1] || '/'
+
+    updatingFromShell = true
+    router.push(vueSubPath).catch(() => {})
+    updatingFromShell = false
+  }
+  // Adds listener to trigger on hash change
+  window.addEventListener('hashchange', hashListener)
   appInstance.mount(selector)
   return () => unmount()
 }
