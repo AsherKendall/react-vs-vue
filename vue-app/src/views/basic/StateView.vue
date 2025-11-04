@@ -1,9 +1,11 @@
 <script setup>
-import StateManagement from '@/components/StateManagement.vue';
+import GenericPage from '@/components/templates/GenericPage.vue'
 </script>
 
 <template>
   <main>
-    <StateManagement />
+    <GenericPage title="State Management">
+      <div>This is content</div>
+    </GenericPage>
   </main>
 </template>

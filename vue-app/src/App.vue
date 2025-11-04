@@ -18,6 +18,11 @@ const items = [
     url: '#/react',
   },
   {
+    label: 'Start Project',
+    route: '/start',
+    icon: 'pi pi-play-circle',
+  },
+  {
     label: 'Basic Features',
     items: [
       {
@@ -29,6 +34,11 @@ const items = [
         label: 'Routing',
         icon: 'pi pi-map-marker',
         route: '/basic/routing',
+      },
+      {
+        label: 'Templating',
+        icon: 'pi pi-objects-column',
+        route: '/basic/template',
       },
     ],
   },

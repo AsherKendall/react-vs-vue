@@ -1,7 +1,8 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import StateView from '@/views/basic/StateView.vue'
-import RoutingPage from '@/components/RoutingPage.vue'
+import TemplatingView from '@/views/basic/TemplatingView.vue'
+import RoutingView from '@/views/basic/RoutingView.vue'
 
 const router = createRouter({
   history: createMemoryHistory('/react-vs-vue/vue/'),
@@ -13,6 +14,11 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      component: HomeView,
+    },
+    {
+      path: '/start',
+      name: 'Starting Projects',
       component: HomeView,
     },
     {
@@ -32,7 +38,11 @@ const router = createRouter({
         },
         {
           path: 'routing',
-          component: RoutingPage,
+          component: RoutingView,
+        },
+        {
+          path: 'template',
+          component: TemplatingView,
         },
       ],
     },

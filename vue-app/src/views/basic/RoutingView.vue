@@ -1,9 +1,11 @@
 <script setup>
-import RoutingPage from '@/components/RoutingPage.vue'
+import GenericPage from '@/components/templates/GenericPage.vue';
 </script>
 
 <template>
   <main>
-    <RoutingPage />
+    <GenericPage title="Routing">
+      <div>This is some content</div>
+    </GenericPage>
   </main>
 </template>
