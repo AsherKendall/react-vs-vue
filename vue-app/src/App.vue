@@ -17,6 +17,21 @@ const items = [
     label: 'React',
     url: '#/react',
   },
+  {
+    label: 'Basic Features',
+    items: [
+      {
+        label: 'State Management',
+        icon: 'pi pi-wrench',
+        route: '/basic/state',
+      },
+      {
+        label: 'Routing',
+        icon: 'pi pi-map-marker',
+        route: '/basic/routing',
+      },
+    ],
+  },
 ]
 </script>
 
