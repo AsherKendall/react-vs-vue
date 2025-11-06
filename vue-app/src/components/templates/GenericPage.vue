@@ -29,11 +29,10 @@ export default {
       default: 'Default Title',
     },
   },
-  async mounted() {
+  async created() {
     try {
       const baseURL = new URL('..', import.meta.url).href
       const response = await fetch(`${baseURL}/vue-app/data/refs.bib`)
-      console.log(response)
       const bibtexContent = await response.text()
 
       const cite = new Cite(bibtexContent)
@@ -47,7 +46,6 @@ export default {
         .map((entry) => `${entry}`)
 
       this.bibliography = items
-      console.log(this.bibliography)
     } catch (error) {
       console.error('Error loading or parsing BibTeX:', error)
       console.error(error.message)
