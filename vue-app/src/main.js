@@ -6,11 +6,6 @@ import PrimeVue from 'primevue/config'
 import Material from '@primeuix/themes/material'
 import { definePreset } from '@primeuix/themes'
 import Ripple from 'primevue/ripple'
-import { plugins } from '@citation-js/core'
-import '@citation-js/plugin-bibtex' // Import the plugin to register it
-import '@citation-js/core'
-
-plugins.add('@citation-js/plugin-bibtex')
 
 let appInstance = null
 let hashListener = null

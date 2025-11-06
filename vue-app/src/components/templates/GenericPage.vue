@@ -3,18 +3,23 @@
     <h1 class="green">{{ title }}</h1>
   </div>
   <slot></slot>
-  <div v-html="bibliography"></div>
+
+  <br />
+  <h2 class="green">References</h2>
+  <ol class="list-none pl-0">
+    <li v-for="item in bibliography" :key="item" v-html="item"></li>
+  </ol>
 </template>
 
 <script>
-import { Cite, plugins } from '@citation-js/core'
+import Cite from 'citation-js'
 import '@citation-js/plugin-bibtex'
 
-plugins.add('@citation-js/plugin-bibtex')
+Cite.plugins.add('@citation-js/plugin-bibtex')
 export default {
   data() {
     return {
-      bibliography: '',
+      bibliography: [],
     }
   },
   name: 'BasicPage', // Optional but recommended for debugging
@@ -26,16 +31,23 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/react-vs-vue/#/refs.bib')
+      const baseURL = new URL('..', import.meta.url).href
+      const response = await fetch(`${baseURL}/vue-app/data/refs.bib`)
+      console.log(response)
       const bibtexContent = await response.text()
-      console.log(bibtexContent)
 
       const cite = new Cite(bibtexContent)
-      this.bibliography = cite.format('bibliography', {
-        format: 'html',
+      const formatted = cite.format('bibliography', {
         template: 'ieee', // Or 'vancouver', 'ieee', etc.
         lang: 'en-US',
       })
+      const items = formatted
+        .split('\n')
+        .filter(Boolean)
+        .map((entry) => `${entry}`)
+
+      this.bibliography = items
+      console.log(this.bibliography)
     } catch (error) {
       console.error('Error loading or parsing BibTeX:', error)
       console.error(error.message)
@@ -66,5 +78,14 @@ h3 {
   .greetings h3 {
     text-align: left;
   }
+}
+.list-none {
+  counter-reset: my-custom-counter;
+  list-style-type: none;
+}
+ol li::before {
+  counter-increment: my-custom-counter; /* Increment the counter for each list item */
+  content: '[' counter(my-custom-counter) ']  '; /* Display custom text and counter value */
+  font-weight: bold;
 }
 </style>

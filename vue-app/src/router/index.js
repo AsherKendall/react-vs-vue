@@ -1,8 +1,5 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import StateView from '@/views/basic/StateView.vue'
-import TemplatingView from '@/views/basic/TemplatingView.vue'
-import RoutingView from '@/views/basic/RoutingView.vue'
 
 const router = createRouter({
   history: createMemoryHistory('/react-vs-vue/vue/'),
@@ -34,15 +31,15 @@ const router = createRouter({
       children: [
         {
           path: 'state',
-          component: StateView,
+          component: () => import('@/views/basic/StateView.vue'),
         },
         {
           path: 'routing',
-          component: RoutingView,
+          component: () => import('@/views/basic/RoutingView.vue'),
         },
         {
           path: 'template',
-          component: TemplatingView,
+          component: () => import('@/views/basic/TemplatingView.vue'),
         },
       ],
     },
