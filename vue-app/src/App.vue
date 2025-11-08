@@ -24,6 +24,7 @@ const items = [
   },
   {
     label: 'Basic Features',
+    icon: 'pi pi-list',
     items: [
       {
         label: 'State Management',
@@ -39,6 +40,22 @@ const items = [
         label: 'Templating',
         icon: 'pi pi-objects-column',
         route: '/basic/template',
+      },
+    ],
+  },
+  {
+    label: 'Basic Metrics',
+    icon: 'pi pi-chart-scatter',
+    items: [
+      {
+        label: 'Performance',
+        icon: 'pi pi-gauge',
+        route: '/metric/performance',
+      },
+      {
+        label: 'Community Support',
+        icon: 'pi pi-users',
+        route: '/metric/support',
       },
     ],
   },

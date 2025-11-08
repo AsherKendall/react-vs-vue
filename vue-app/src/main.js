@@ -29,9 +29,18 @@ const customPreset = definePreset(Material, {
   ripple: true,
 })
 
+// Load bibliography before visiting pages as a client state with lazy load.
+async function handleBib() {
+  const { getBib } = await import('./functions/bib')
+  // Local storage for bibliography
+  localStorage.setItem('bib', JSON.stringify(await getBib()))
+}
+
+await handleBib()
+
 export function mount(selector, initialPath = '/') {
   appInstance = createApp(App)
-  // Add Prime Vue Themeing and Ripple Effect
+  // Add Prime Vue Theming and Ripple Effect
   appInstance.use(PrimeVue, {
     theme: {
       preset: customPreset,

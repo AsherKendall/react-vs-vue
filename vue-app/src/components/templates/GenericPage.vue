@@ -31,20 +31,7 @@ export default {
   },
   async created() {
     try {
-      const baseURL = new URL('..', import.meta.url).href
-      const response = await fetch(`${baseURL}/vue-app/data/refs.bib`)
-      const bibtexContent = await response.text()
-
-      const cite = new Cite(bibtexContent)
-      const formatted = cite.format('bibliography', {
-        template: 'ieee', // Or 'vancouver', 'ieee', etc.
-        lang: 'en-US',
-      })
-      const items = formatted
-        .split('\n')
-        .filter(Boolean)
-        .map((entry) => `${entry}`)
-
+      const items = JSON.parse(localStorage.getItem('bib'))
       this.bibliography = items
     } catch (error) {
       console.error('Error loading or parsing BibTeX:', error)
