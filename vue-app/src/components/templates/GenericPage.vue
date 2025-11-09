@@ -37,7 +37,6 @@ export default {
       if (citations) {
         this.bibliography = citations.getBibliography()
       }
-      console.log(citations.getBibliography())
     } catch (error) {
       console.error('Error loading or parsing BibTeX:', error)
       console.error(error.message)
@@ -82,7 +81,6 @@ h3 {
 .greetings h3 {
   text-align: center;
 }
-
 
 @media (min-width: 1024px) {
   .greetings h1,
