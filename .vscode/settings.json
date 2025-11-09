@@ -10,5 +10,13 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["bibtex", "highlightjs", "primevue", "vite"]
+  "cSpell.words": ["bibtex", "highlightjs", "primevue", "vite"],
+  "debug.javascript.terminalOptions": {
+    "resolveSourceMapLocations": [
+      "${workspaceFolder}/**",
+      "!**/node_modules/**",
+      "**/node_modules/.vite-temp/**",
+      "${workspaceFolder}/vue-app/**"
+    ]
+  }
 }

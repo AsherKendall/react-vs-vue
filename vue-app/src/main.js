@@ -39,13 +39,10 @@ const customPreset = definePreset(Material, {
 })
 
 // Load bibliography before visiting pages as a client state with lazy load.
-async function handleBib() {
-  const { getBib } = await import('./functions/bib')
-  // Local storage for bibliography
-  localStorage.setItem('bib', JSON.stringify(await getBib()))
-}
 
-await handleBib()
+import citations from '@/functions/bib'
+
+console.log(citations)
 
 export function mount(selector, initialPath = '/') {
   appInstance = createApp(App)
@@ -58,6 +55,7 @@ export function mount(selector, initialPath = '/') {
   appInstance.directive('ripple', Ripple)
   appInstance.use(router)
   appInstance.use(hljsVuePlugin)
+  appInstance.provide('citations', citations)
   router.push(initialPath).catch(() => {})
   let updatingFromShell = false
 

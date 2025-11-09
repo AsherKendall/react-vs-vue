@@ -8,13 +8,14 @@
   <br />
   <h2 class="green">References</h2>
   <ol class="list-none pl-0">
-    <li v-for="item in bibliography" :key="item" v-html="item"></li>
+    <li v-for="ref in bibliography" :key="ref.id" v-html="`[${ref.number}] ${ref.text}`"></li>
   </ol>
 </template>
 
 <script>
 import Cite from 'citation-js'
 import '@citation-js/plugin-bibtex'
+import { inject } from 'vue'
 
 Cite.plugins.add('@citation-js/plugin-bibtex')
 export default {
@@ -32,8 +33,11 @@ export default {
   },
   async created() {
     try {
-      const items = JSON.parse(localStorage.getItem('bib'))
-      this.bibliography = items
+      const citations = inject('citations')
+      if (citations) {
+        this.bibliography = citations.getBibliography()
+      }
+      console.log(citations.getBibliography())
     } catch (error) {
       console.error('Error loading or parsing BibTeX:', error)
       console.error(error.message)
@@ -66,7 +70,9 @@ h3 {
   padding: 3px;
 }
 
-
+h2 {
+  font-size: 1.8rem;
+}
 
 h3 {
   font-size: 1.2rem;
@@ -77,6 +83,7 @@ h3 {
   text-align: center;
 }
 
+
 @media (min-width: 1024px) {
   .greetings h1,
   .greetings h3 {
@@ -84,12 +91,6 @@ h3 {
   }
 }
 .list-none {
-  counter-reset: my-custom-counter;
   list-style-type: none;
-}
-ol li::before {
-  counter-increment: my-custom-counter; /* Increment the counter for each list item */
-  content: '[' counter(my-custom-counter) ']  '; /* Display custom text and counter value */
-  font-weight: bold;
 }
 </style>
