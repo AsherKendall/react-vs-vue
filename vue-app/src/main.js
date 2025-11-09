@@ -42,8 +42,6 @@ const customPreset = definePreset(Material, {
 
 import citations from '@/functions/bib'
 
-console.log(citations)
-
 export function mount(selector, initialPath = '/') {
   appInstance = createApp(App)
   // Add Prime Vue Theming and Ripple Effect
