@@ -6,9 +6,19 @@ import PrimeVue from 'primevue/config'
 import Material from '@primeuix/themes/material'
 import { definePreset } from '@primeuix/themes'
 import Ripple from 'primevue/ripple'
+import hljs from 'highlight.js/lib/core'
+import bash from 'highlight.js/lib/languages/bash'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
 
 let appInstance = null
 let hashListener = null
+
+// Register the Bash language
+hljs.registerLanguage('bash', bash)
+
+// Import a Highlight.js theme (choose one you like)
+import 'highlight.js/styles/default.css' // or 'atom-one-dark.css', etc.
+hljs.highlightAll()
 
 const customPreset = definePreset(Material, {
   semantic: {
@@ -48,6 +58,7 @@ export function mount(selector, initialPath = '/') {
   })
   appInstance.directive('ripple', Ripple)
   appInstance.use(router)
+  appInstance.use(hljsVuePlugin)
   router.push(initialPath).catch(() => {})
   let updatingFromShell = false
 

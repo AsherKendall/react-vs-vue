@@ -2,8 +2,9 @@
   <div class="greetings">
     <h1 class="green">{{ title }}</h1>
   </div>
-  <slot></slot>
-
+  <div class="wrapper">
+    <slot></slot>
+  </div>
   <br />
   <h2 class="green">References</h2>
   <ol class="list-none pl-0">
@@ -48,6 +49,24 @@ h1 {
   position: relative;
   top: -10px;
 }
+
+:slotted(h1, h2, h3) {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+
 
 h3 {
   font-size: 1.2rem;
