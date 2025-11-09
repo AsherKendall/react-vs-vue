@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import './assets/main.css'
+
 import { Menubar } from 'primevue'
 
 const items = [

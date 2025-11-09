@@ -17,7 +17,7 @@ let hashListener = null
 hljs.registerLanguage('bash', bash)
 
 // Import a Highlight.js theme (choose one you like)
-import 'highlight.js/styles/default.css' // or 'atom-one-dark.css', etc.
+import 'highlight.js/styles/github-dark.css'
 
 const customPreset = definePreset(Material, {
   semantic: {
