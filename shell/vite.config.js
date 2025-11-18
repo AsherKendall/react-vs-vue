@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     port: 5173,
     fs: {
-      // allow access to project root and subapp builds
+      // allow access to project root and sub-app builds
       allow: [
         "..",
         path.resolve(__dirname, "../dist/react-app"),
