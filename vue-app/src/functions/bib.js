@@ -1,5 +1,6 @@
-import Cite from 'citation-js'
+import { Cite } from '@citation-js/core'
 import '@citation-js/plugin-bibtex'
+import '@citation-js/plugin-csl'
 
 const rawEntries = `
   @INPROCEEDINGS{ComparWebRend,
@@ -141,6 +142,17 @@ const rawEntries = `
   howpublished = {Online},
   journal={npm},
   publisher={npm},
+  year={2025}} 
+
+
+
+@misc{vueRouter, 
+  author={{Vue Developers}},
+  title = {Different History Mode | Vue Router},
+  url={https://router.vuejs.org/guide/essentials/history-mode.html},
+  howpublished = {Online},
+  journal={Vue Router | The official Router for Vue.js},
+  publisher={Vue Router},
   year={2025}} `
 
 const cite = new Cite(rawEntries)
