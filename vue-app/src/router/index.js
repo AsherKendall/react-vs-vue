@@ -1,5 +1,4 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createMemoryHistory('/react-vs-vue/vue/'),
@@ -11,7 +10,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('@/views/HomeView.vue'),
     },
     {
       path: '/start',

@@ -4,7 +4,13 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const VueWrapper = {
   template: '<div id="vue-container"></div>',
   async mounted() {
-    await import("../../dist/vue-app/vue-entry.css");
+    this.styleEl = document.createElement("link");
+    this.styleEl.rel = "stylesheet";
+    this.styleEl.href = `${import.meta.env.BASE_URL}dist/vue-app/vue-entry.css`;
+    document.head.appendChild(this.styleEl);
+
+    // await import("../../dist/vue-app/vue-entry.css");
+
     const { mount } = await import("../../dist/vue-app/vue-entry.js");
     const hash = window.location.hash;
     const match = hash.match(/^#\/vue(\/.*)?$/);
@@ -13,6 +19,9 @@ const VueWrapper = {
   },
   unmounted() {
     if (this.vueUnmount) this.vueUnmount();
+    if (this.styleEl) {
+      document.head.removeChild(this.styleEl);
+    }
   },
 };
 
