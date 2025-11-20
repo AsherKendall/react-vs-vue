@@ -40,13 +40,14 @@ p {
   margin-bottom: 1em;
   font-size: 1.2rem;
   text-align: justify;
-  hyphens: auto;
+  word-wrap: break-word;
   max-width: 75ch;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   text-decoration: none;
   color: rgb(255, 255, 255);
   transition: 0.4s;
@@ -68,6 +69,9 @@ h2 ~ pre {
 h3 ~ p,
 h3 ~ pre {
   margin-left: 7px;
+}
+h4 {
+  margin-left: 9px;
 }
 
 pre {

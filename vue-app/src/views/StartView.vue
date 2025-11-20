@@ -11,11 +11,7 @@ const citations = inject('citations')
       <h2 class="blue">React Install</h2>
       <p>These commands should allow you to start a React project easily on your local machine.</p>
       <h3 class="blue">Install Node.js</h3>
-      <p>
-        Vite requires that you have either 20.19+ or 22,12+ versions of Node.js installed [{{
-          citations.getCitationNumber('createVite')
-        }}].
-      </p>
+      <p>React requires that you have either 20+ versions of Node.js installed.</p>
 
       <h3 class="blue">Create Basic Project with Vite</h3>
       <p>Start project using the `create-vite` package:</p>
@@ -33,7 +29,7 @@ const citations = inject('citations')
       <h2 class="green">Vue Install</h2>
       <h3 class="green">Install Node.js</h3>
       <p>
-        Vite requires that you have either 20.19+ or 22,12+ versions of Node.js installed [{{
+        Vite requires that you have either 20.19+ or 22.12+ versions of Node.js installed [{{
           citations.getCitationNumber('createVite')
         }}].
       </p>

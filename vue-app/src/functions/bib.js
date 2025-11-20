@@ -158,7 +158,7 @@ const rawEntries = `
   
   @misc{vueProvideIn, 
   author={{Vue Developers}},
-  title = {Provide / Inject| Vue.js},
+  title = {Provide / Inject | Vue.js},
   url={https://vuejs.org/guide/components/provide-inject},
   howpublished = {Online},
   journal={Vue Router | The official Router for Vue.js},
