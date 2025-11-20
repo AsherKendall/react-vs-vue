@@ -153,7 +153,17 @@ const rawEntries = `
   howpublished = {Online},
   journal={Vue Router | The official Router for Vue.js},
   publisher={Vue Router},
-  year={2025}} `
+  year={2025}} 
+
+  
+  @misc{vueProvideIn, 
+  author={{Vue Developers}},
+  title = {Provide / Inject| Vue.js},
+  url={https://vuejs.org/guide/components/provide-inject},
+  howpublished = {Online},
+  journal={Vue Router | The official Router for Vue.js},
+  publisher={Vue Router},
+  year={2025}}`
 
 const cite = new Cite(rawEntries)
 
