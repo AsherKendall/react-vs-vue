@@ -15,12 +15,27 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: true,
     lib: {
       entry: './src/main.js',
       name: 'VueApp',
       fileName: 'vue-entry',
       formats: ['es'],
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          '@citation-js': [
+            '@citation-js/core',
+            '@citation-js/plugin-bibtex',
+            '@citation-js/plugin-csl',
+          ],
+          'highlight.js': [
+            'highlight.js/lib/core',
+            'highlight.js/lib/languages/bash',
+            '@highlightjs/vue-plugin',
+          ],
+        },
+      },
     },
     outDir: '../dist/vue-app',
     emptyOutDir: true,

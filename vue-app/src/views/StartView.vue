@@ -8,16 +8,16 @@ const citations = inject('citations')
 <template>
   <main>
     <GenericPage title="How to Start Project for Each Solution">
-      <h2 class="green">React Install</h2>
+      <h2 class="blue">React Install</h2>
       <p>These commands should allow you to start a React project easily on your local machine.</p>
-      <h3 class="green">Install Node.js</h3>
+      <h3 class="blue">Install Node.js</h3>
       <p>
         Vite requires that you have either 20.19+ or 22,12+ versions of Node.js installed [{{
           citations.getCitationNumber('createVite')
         }}].
       </p>
 
-      <h3 class="green">Create Basic Project with Vite</h3>
+      <h3 class="blue">Create Basic Project with Vite</h3>
       <p>Start project using the `create-vite` package:</p>
       <highlightjs
         language="bash"

@@ -8,6 +8,12 @@
   font-weight: normal;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: 0.4s;
+}
+
 a,
 .green {
   text-decoration: none;
@@ -15,28 +21,44 @@ a,
   transition: 0.4s;
 }
 
+a,
+.blue {
+  text-decoration: none;
+  color: rgb(97, 219, 251);
+  transition: 0.4s;
+}
+
+.blue {
+  color: rgb(97, 219, 251);
+}
+
+.green {
+  color: hsla(160, 100%, 37%, 1);
+}
+
 p {
   margin-bottom: 1em;
+  font-size: 1.2rem;
   text-align: justify;
   hyphens: auto;
-  max-width: 70ch;
+  max-width: 75ch;
 }
 
 h1,
 h2,
 h3 {
   text-decoration: none;
-  color: hsla(350, 77%, 49%, 1);
+  color: rgb(255, 255, 255);
   transition: 0.4s;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding-left: 3px;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding-left: 5px;
 }
 h2 ~ p,

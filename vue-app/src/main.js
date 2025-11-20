@@ -66,7 +66,7 @@ export function mount(selector, initialPath = '/') {
     }
   })
 
-  // ---- Sync Shell URL -> Vue router ----
+  // Sync Shell URL -> Vue router
   hashListener = () => {
     const hash = window.location.hash || ''
     if (!hash.startsWith('#/vue')) return

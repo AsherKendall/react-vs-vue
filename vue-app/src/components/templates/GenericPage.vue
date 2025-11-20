@@ -1,23 +1,21 @@
 <template class="basic-page">
   <div class="greetings">
-    <h1 class="green">{{ title }}</h1>
+    <h1>{{ title }}</h1>
   </div>
   <div class="wrapper">
     <slot></slot>
   </div>
   <br />
-  <h2 class="green">References</h2>
+  <h2>References</h2>
   <ol class="list-none pl-0">
     <li v-for="ref in bibliography" :key="ref.id" v-html="`[${ref.number}] ${ref.text}`"></li>
   </ol>
 </template>
 
 <script>
-import Cite from 'citation-js'
 import '@citation-js/plugin-bibtex'
 import { inject } from 'vue'
 
-Cite.plugins.add('@citation-js/plugin-bibtex')
 export default {
   data() {
     return {
@@ -51,22 +49,6 @@ h1 {
   font-size: 2.6rem;
   position: relative;
   top: -10px;
-}
-
-:slotted(h1, h2, h3) {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-h1,
-h2,
-h3 {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
 }
 
 h2 {

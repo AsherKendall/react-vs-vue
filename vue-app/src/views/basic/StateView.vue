@@ -7,7 +7,7 @@ import hljs from 'highlight.js'
 
 <template>
   <main>
-    <GenericPage title="State Management">
+    <GenericPage title="State & State Management">
       <h2>Property Passing</h2>
     </GenericPage>
   </main>
