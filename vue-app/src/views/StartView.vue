@@ -47,5 +47,5 @@ const citations = inject('citations')
 </template>
 
 <script>
-hljs.initHighlightingOnLoad()
+hljs.highlightAll()
 </script>

@@ -3,6 +3,10 @@ import GenericPage from '@/components/templates/GenericPage.vue'
 import hljs from 'highlight.js'
 // import { inject } from 'vue'
 // const citations = inject('citations')
+// TODO
+// Talk about basic state management things
+// Prop drilling and solutions
+// Triggered changes & thing of that nature
 </script>
 
 <template>
@@ -14,7 +18,7 @@ import hljs from 'highlight.js'
 </template>
 
 <script>
-hljs.initHighlightingOnLoad()
+hljs.highlightAll()
 </script>
 
 <style scoped></style>
