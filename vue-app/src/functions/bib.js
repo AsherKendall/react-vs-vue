@@ -163,11 +163,22 @@ const rawEntries = `
   howpublished = {Online},
   journal={Vue Router | The official Router for Vue.js},
   publisher={Vue Router},
+  year={2025}}
+  
+  @misc{reactUseMemo, 
+  author={{React Developers}},
+  title = {useMemo - React},
+  url={https://react.dev/reference/react/useMemo},
+  howpublished = {Online},
+  journal={React},
+  publisher={React},
   year={2025}}`
 
 const cite = new Cite(rawEntries)
 
 const entries = cite.data
+
+console.log(entries)
 
 // Generate formatted bibliography and index by ID
 const formattedEntries = cite
@@ -180,12 +191,24 @@ const formattedEntries = cite
     text: entry,
   }))
 
+console.log(formattedEntries)
+
 export default {
   cite,
   formattedEntries,
   getCitationNumber(id) {
     const item = formattedEntries.find((e) => e.id === id)
-    return item ? item.number : '?'
+    return `[${item ? item.number : '?'}]`
+  },
+  getCitationNumbers(ids) {
+    const items = ids.map((id) => formattedEntries.find((e) => e.id === id))
+    console.log(items)
+    let processedItems = []
+    for (let i = 0; i < items.length; i++) {
+      processedItems.push(`[${items[i] ? items[i].number : '?'}]`)
+    }
+    const resultString = processedItems.join(', ')
+    return resultString
   },
   getBibliography() {
     return formattedEntries

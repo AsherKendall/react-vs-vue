@@ -43,22 +43,22 @@ const items = [
       },
     ],
   },
-  // {
-  //   label: 'Basic Metrics',
-  //   icon: 'pi pi-chart-scatter',
-  //   items: [
-  //     {
-  //       label: 'Performance',
-  //       icon: 'pi pi-gauge',
-  //       route: '/metric/performance',
-  //     },
-  //     {
-  //       label: 'Community Support',
-  //       icon: 'pi pi-users',
-  //       route: '/metric/support',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'Basic Metrics',
+    icon: 'pi pi-chart-scatter',
+    items: [
+      {
+        label: 'Performance',
+        icon: 'pi pi-gauge',
+        route: '/metric/performance',
+      },
+      {
+        label: 'Community Support',
+        icon: 'pi pi-users',
+        route: '/metric/support',
+      },
+    ],
+  },
 ]
 </script>
 

@@ -42,6 +42,19 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: '/metric',
+      children: [
+        {
+          path: 'performance',
+          component: () => import('@/views/metrics/PerformanceView.vue'),
+        },
+        {
+          path: 'support',
+          component: () => import('@/views/metrics/CommunityView.vue'),
+        },
+      ],
+    },
   ],
 })
 

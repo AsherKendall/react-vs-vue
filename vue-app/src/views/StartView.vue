@@ -29,9 +29,8 @@ const citations = inject('citations')
       <h2 class="green">Vue Install</h2>
       <h3 class="green">Install Node.js</h3>
       <p>
-        Vite requires that you have either 20.19+ or 22.12+ versions of Node.js installed [{{
-          citations.getCitationNumber('createVite')
-        }}].
+        Vite requires that you have either 20.19+ or 22.12+ versions of Node.js installed
+        {{ citations.getCitationNumber('createVite') }}.
       </p>
       <h3 class="green">Create Basic Project with Vite</h3>
       <p>Start project using the `create-vite` package:</p>

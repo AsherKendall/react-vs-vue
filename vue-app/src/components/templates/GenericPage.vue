@@ -7,9 +7,9 @@
   </div>
   <br />
   <h2>References</h2>
-  <ol class="list-none pl-0">
+  <ul class="list-none pl-0">
     <li v-for="ref in bibliography" :key="ref.id" v-html="`[${ref.number}] ${ref.text}`"></li>
-  </ol>
+  </ul>
 </template>
 
 <script>
