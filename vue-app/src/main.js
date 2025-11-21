@@ -51,10 +51,13 @@ export async function mount(selector, initialPath = '/') {
       preset: customPreset,
     },
   })
+
+  await citations.init()
+  appInstance.provide('citations', citations)
   appInstance.directive('ripple', Ripple)
   appInstance.use(router)
   appInstance.use(hljsVuePlugin)
-  appInstance.provide('citations', citations)
+
   router.push(initialPath).catch(() => {})
   let updatingFromShell = false
 

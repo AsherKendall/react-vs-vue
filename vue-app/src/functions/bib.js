@@ -174,28 +174,33 @@ const rawEntries = `
   publisher={React},
   year={2025}}`
 
-const cite = new Cite(rawEntries)
-
-const entries = cite.data
-
-console.log(entries)
-
 // Generate formatted bibliography and index by ID
-const formattedEntries = cite
-  .format('bibliography', { template: 'ieee', lang: 'en-US' })
-  .split('\n')
-  .filter(Boolean)
-  .map((entry, i) => ({
-    id: entries[i].id,
-    number: i + 1,
-    text: entry,
-  }))
+
+let formattedEntries = []
+
+async function init() {
+  const cite = await Cite.async(rawEntries)
+  const entries = cite.data
+
+  console.log(entries)
+
+  formattedEntries = cite
+    .format('bibliography', { nosort: true, template: 'ieee' })
+    .split('\n')
+    .filter(Boolean)
+    .map((text, index) => ({
+      id: entries[index].id,
+      number: index + 1,
+      text,
+    }))
+
+  console.log(formattedEntries)
+}
 
 console.log(formattedEntries)
 
 export default {
-  cite,
-  formattedEntries,
+  init,
   getCitationNumber(id) {
     const item = formattedEntries.find((e) => e.id === id)
     return `[${item ? item.number : '?'}]`

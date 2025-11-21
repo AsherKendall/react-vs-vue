@@ -9,6 +9,8 @@ defineProps({
     default: 'Default Title',
   },
 })
+
+console.log(citations.getBibliography())
 </script>
 
 <template class="basic-page">
@@ -20,8 +22,8 @@ defineProps({
   </div>
   <br />
   <h2 v-once>References</h2>
-  <ul v-once class="list-none pl-0">
-    <li v-for="item in bibliography" v-once :key="item.number">
+  <ul class="list-none pl-0">
+    <li v-for="item in bibliography" :key="item.number">
       {{ `[${item.number}] ${item.text}` }}
     </li>
   </ul>
@@ -58,7 +60,3 @@ h3 {
   list-style-type: none;
 }
 </style>
-
-<script>
-console.log(citations.getBibliography())
-</script>

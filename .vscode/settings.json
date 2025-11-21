@@ -10,7 +10,14 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["bibtex", "highlightjs", "howpublished", "primevue", "vite"],
+  "cSpell.words": [
+    "bibtex",
+    "highlightjs",
+    "howpublished",
+    "nosort",
+    "primevue",
+    "vite"
+  ],
   "debug.javascript.terminalOptions": {
     "resolveSourceMapLocations": [
       "${workspaceFolder}/**",
