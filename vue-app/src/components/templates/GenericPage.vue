@@ -1,3 +1,16 @@
+<script setup>
+import { inject, defineProps } from 'vue'
+const citations = inject('citations')
+const bibliography = citations.getBibliography()
+defineProps({
+  title: {
+    type: String,
+    required: true,
+    default: 'Default Title',
+  },
+})
+</script>
+
 <template class="basic-page">
   <div class="greetings">
     <h1>{{ title }}</h1>
@@ -6,42 +19,13 @@
     <slot></slot>
   </div>
   <br />
-  <h2>References</h2>
-  <ul class="list-none pl-0">
-    <li v-for="ref in bibliography" :key="ref.id" v-html="`[${ref.number}] ${ref.text}`"></li>
+  <h2 v-once>References</h2>
+  <ul v-once class="list-none pl-0">
+    <li v-for="item in bibliography" v-once :key="item.number">
+      {{ `[${item.number}] ${item.text}` }}
+    </li>
   </ul>
 </template>
-
-<script>
-import '@citation-js/plugin-bibtex'
-import { inject } from 'vue'
-
-export default {
-  data() {
-    return {
-      bibliography: [],
-    }
-  },
-  name: 'BasicPage', // Optional but recommended for debugging
-  props: {
-    title: {
-      type: String,
-      default: 'Default Title',
-    },
-  },
-  async created() {
-    try {
-      const citations = inject('citations')
-      if (citations) {
-        this.bibliography = citations.getBibliography()
-      }
-    } catch (error) {
-      console.error('Error loading or parsing BibTeX:', error)
-      console.error(error.message)
-    }
-  },
-}
-</script>
 
 <style scoped>
 h1 {
@@ -74,3 +58,7 @@ h3 {
   list-style-type: none;
 }
 </style>
+
+<script>
+console.log(citations.getBibliography())
+</script>
