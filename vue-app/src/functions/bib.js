@@ -158,11 +158,11 @@ const rawEntries = `
   
   @misc{vueProvideIn, 
   author={{Vue Developers}},
-  title = {Provide / Inject | Vue.js},
+  title = {Provide / Inject| Vue.js},
   url={https://vuejs.org/guide/components/provide-inject},
   howpublished = {Online},
-  journal={Vue Router | The official Router for Vue.js},
-  publisher={Vue Router},
+  journal={Vue.js - The Progressive JavaScript Framework | Vue.js},
+  publisher={Vue},
   year={2025}}
   
   @misc{reactUseMemo, 
@@ -190,6 +190,40 @@ const rawEntries = `
   howpublished = {Online},
   journal={React},
   publisher={React},
+  year={2025}}
+  
+  @misc{reactCompiler, 
+  author={{React Developers}},
+  title = {React Compiler - React},
+  url={https://react.dev/learn/react-compiler},
+  howpublished = {Online},
+  journal={React},
+  publisher={React},
+  year={2025}}
+  
+  @misc{iReactCompiler,
+  author = {Makarevich, Nadia},
+  title = {I tried React Compiler today, and guess what...},
+  howpublished = {\\url{https://www.developerway.com/posts/i-tried-react-compiler}},
+  year = {2024},
+  note = {Accessed: November 22, 2025}
+}
+  
+@misc{krausestInteractiveResults,
+	author = {Krause, Stefan},
+	title = {{I}nteractive {R}esults --- krausest.github.io},
+	howpublished = {\\url{https://krausest.github.io/js-framework-benchmark/2025/table_chrome_142.0.7444.60.html}},
+	year = {2025},
+	note = {[Accessed 22-11-2025]},
+}
+  
+@misc{vueReactivity, 
+  author={{Vue Developers}},
+  title = {Reactivity in Depth | Vue.js},
+  url={https://vuejs.org/guide/extras/reactivity-in-depth.html},
+  howpublished = {Online},
+  journal={Vue.js - The Progressive JavaScript Framework | Vue.js},
+  publisher={Vue},
   year={2025}}`
 
 // Generate formatted bibliography and index by ID
