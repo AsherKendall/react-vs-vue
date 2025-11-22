@@ -12,6 +12,7 @@ import hljs from 'highlight.js'
 <template>
   <main>
     <GenericPage title="State & State Management">
+      <h2>WORK IN PROGRESS</h2>
       <h2>Property Passing</h2>
     </GenericPage>
   </main>

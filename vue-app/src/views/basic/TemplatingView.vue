@@ -5,7 +5,7 @@ import GenericPage from '@/components/templates/GenericPage.vue'
 <template>
   <main>
     <GenericPage title="Templating">
-      <div>This is content</div>
+      <div>WORK IN PROGRESS</div>
     </GenericPage>
   </main>
 </template>
