@@ -50,9 +50,50 @@ const citations = inject('citations')
         {{ citations.getCitationNumber('RendPerf') }}.
       </p>
       <p>
-        While this methods has some pretty significant downsides, React does provide some solutions
-        that can help developers reduce their impact.
+        While this method has some pretty significant downsides, React does provide some solutions
+        that can help developers reduce their impact. For example, we can use the memo function to
+        memoize static or non-changing components. This should be done unless the component is very
+        small and/or simple, where memo costs more than a re-render
+        {{ citations.getCitationNumber('reactMemo') }}.
       </p>
+      <highlightjs
+        language="javascript"
+        code="import { memo } from 'react';
+
+const SomeComponent = memo(function SomeComponent(props) {
+  // Component Code
+});"
+      />
+      <p>
+        This can be used in addition to useContext to skip children components in between the parent
+        the desired component to be re-rendered. I discuss this hook more in the
+        <RouterLink to="/basic/state">state section</RouterLink>. Here is an example from the react
+        documentation {{ citations.getCitationNumber('reactUseContext') }}.
+      </p>
+      <highlightjs
+        language="javascript"
+        code="import { useCallback, useMemo } from 'react';
+
+function MyApp() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const login = useCallback((response) => {
+    storeCredentials(response.credentials);
+    setCurrentUser(response.user);
+  }, []);
+
+  const contextValue = useMemo(() => ({
+    currentUser,
+    login
+  }), [currentUser, login]);
+
+  return (
+    <AuthContext value={contextValue}>
+      <Page />
+    </AuthContext>
+  );
+}"
+      />
       <h3 class="green">How Vue Handles the Virtual DOM</h3>
       <p></p>
 

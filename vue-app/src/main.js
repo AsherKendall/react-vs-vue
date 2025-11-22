@@ -8,6 +8,7 @@ import { definePreset } from '@primeuix/themes'
 import Ripple from 'primevue/ripple'
 import hljs from 'highlight.js/lib/core'
 import bash from 'highlight.js/lib/languages/bash'
+import javascript from 'highlight.js/lib/languages/javascript'
 import hljsVuePlugin from '@highlightjs/vue-plugin'
 
 let appInstance = null
@@ -15,6 +16,7 @@ let hashListener = null
 
 // Register the Bash language
 hljs.registerLanguage('bash', bash)
+hljs.registerLanguage('javascript', javascript)
 
 // Import a Highlight.js theme (choose one you like)
 import 'highlight.js/styles/github-dark.css'

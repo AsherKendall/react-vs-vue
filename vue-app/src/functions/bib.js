@@ -172,6 +172,24 @@ const rawEntries = `
   howpublished = {Online},
   journal={React},
   publisher={React},
+  year={2025}}
+  
+  @misc{reactMemo, 
+  author={{React Developers}},
+  title = {memo - React},
+  url={https://react.dev/reference/react/memo},
+  howpublished = {Online},
+  journal={React},
+  publisher={React},
+  year={2025}}
+  
+  @misc{reactUseContext, 
+  author={{React Developers}},
+  title = {useContext - React},
+  url={https://react.dev/reference/react/useContext},
+  howpublished = {Online},
+  journal={React},
+  publisher={React},
   year={2025}}`
 
 // Generate formatted bibliography and index by ID
