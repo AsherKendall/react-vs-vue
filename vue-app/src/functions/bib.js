@@ -234,7 +234,6 @@ async function init() {
   const cite = await Cite.async(rawEntries)
   const entries = cite.data
 
-  console.log(entries)
 
   formattedEntries = cite
     .format('bibliography', { nosort: true, template: 'ieee' })
@@ -246,10 +245,8 @@ async function init() {
       text,
     }))
 
-  console.log(formattedEntries)
 }
 
-console.log(formattedEntries)
 
 export default {
   init,
@@ -259,7 +256,6 @@ export default {
   },
   getCitationNumbers(ids) {
     const items = ids.map((id) => formattedEntries.find((e) => e.id === id))
-    console.log(items)
     let processedItems = []
     for (let i = 0; i < items.length; i++) {
       processedItems.push(`[${items[i] ? items[i].number : '?'}]`)

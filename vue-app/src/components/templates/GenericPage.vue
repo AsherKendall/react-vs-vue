@@ -9,8 +9,6 @@ defineProps({
     default: 'Default Title',
   },
 })
-
-console.log(citations.getBibliography())
 </script>
 
 <template class="basic-page">
