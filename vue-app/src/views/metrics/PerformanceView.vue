@@ -24,7 +24,7 @@ const citations = inject('citations')
         get into further in my analysis.
       </p>
 
-      <h2>Rendering</h2>
+      <h2>Rendering & DOM Manipulation</h2>
       <p>
         Most of these results seem to be determined by how React and Vue handle the virtual DOM
         differently. The virtual DOM is a tree of nodes that represent the components in the DOM.
@@ -109,11 +109,12 @@ function MyApp() {
         cases where this tool is useful in production. This is something that needs to be evaluated
         on a case-by-case basis, and in certain cases results in worse performance. For example,
         according to a performance testing framework, we found that using the React Compiler with
-        hooks for replacing all rows gave us a weighted geometric mean of 35.6 ms. However, using
-        just React hooks, we got a better score of 35.1 ms, which demonstrates not all situations
-        are equal in this regard. We can see that the React compiler with hooks still overall scored
+        hooks for replacing all rows gave us a mean result of 35.6 ms. However, using just React
+        hooks, we got a better mean result of 35.2 ms, which demonstrates not all situations are
+        equal in this regard. We can see that the React compiler with hooks still overall scored
         better than React hooks, and as such, it may be a good idea to assess your specific case
-        first {{ citations.getCitationNumber('krausestInteractiveResults') }}.
+        first
+        {{ citations.getCitationNumber('krausestInteractiveResults') }}.
       </p>
       <h3 class="green">How Vue Handles the Virtual DOM</h3>
       <p>
@@ -138,6 +139,52 @@ function MyApp() {
         this in Vue 3 by tracking dependencies for reactive objects using JavaScript Proxies and
         getters/setters for refs
         {{ citations.getCitationNumbers(['RendPerf', 'VueRendering', 'vueReactivity']) }}.
+      </p>
+
+      <h3>Testing Comparison</h3>
+
+      <p>
+        Using a multitude of different scholarly and industry documents, I will be creating a more
+        general analysis based on testing numbers. Using these comparisons, I will try to find
+        results that are agreed upon across multiple sources, as well as make sense given how some
+        of their systems work. The metric I will be measuring is performance, which I will be
+        measuring in time.
+      </p>
+      <p>
+        One thing that I found sources generally agree on is that in comparison with Vue, rendering
+        time for React is generally larger for large amounts of elements when it comes to script
+        execution time. For example, we see one measurement get 200 ms for React and 47 ms for Vue
+        when creating 10,000 static elements {{ citations.getCitationNumber('RendPerf') }}. Another
+        test we see that supports this idea is where React gets 166.5 ± 1.2 ms and Vue gets 72.9 ±
+        0.4 ms for creating 10,000 elements using keyed results
+        {{ citations.getCitationNumber('krausestInteractiveResults') }}. When including script
+        execution and render time with large amounts of elements. For React, we can get about ~250
+        ms for and a mean of 402.2 ms for 10,000 elements when talking about the create operation.
+        For Vue, we see about 30 ms for elements and 308.3 ms for row creation
+        {{ citations.getCitationNumbers(['ComparWebRend', 'krausestInteractiveResults']) }}.
+      </p>
+
+      <p>
+        Another thing that was pointed out was that React was slower when it came to updating the
+        root component with a tree of a large amount of child components. This test says that a full
+        render cycle for React takes 32768 components and takes about 439 ms, while in Vue it takes
+        48 ms {{ citations.getCitationNumber('RendPerf') }}. This makes sense given that Vue employs
+        more strategies to deal with tree traversal, such as its limited reactivity system mentioned
+        earlier.
+      </p>
+      <p>
+        Overall, it seems most of the trends seem to agree when compared with ones that employed
+        similar testing methods. One of the sources, which is a testing framework, gave a
+        measurement that gives a better overall idea in terms of performance using a weighted
+        geometric mean (where 1 is the lowest you can get). Using the mean keyed results of the
+        total duration of both the render and script runtimes, where smaller is better. React gets a
+        weighted geometric mean of 1.54, while Vue gets 1.29 when compared to a multitude of
+        JavaScript web frameworks {{ citations.getCitationNumber('krausestInteractiveResults') }}.
+      </p>
+      <h2>Bundle Size</h2>
+      <p>
+        React had a bundle size of 135 Kilobytes where vue had a bundle size of 126 kilobytes
+        {{ citations.getCitationNumber('ComparWebRends') }}.
       </p>
     </GenericPage>
   </main>

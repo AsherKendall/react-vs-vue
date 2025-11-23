@@ -211,11 +211,12 @@ const rawEntries = `
   
 @misc{krausestInteractiveResults,
 	author = {Krause, Stefan},
-	title = {{I}nteractive {R}esults --- krausest.github.io},
+	title = {js-framework-benchmark results for Chrome 142.0.7444.60--- krausest.github.io},
 	howpublished = {\\url{https://krausest.github.io/js-framework-benchmark/2025/table_chrome_142.0.7444.60.html}},
 	year = {2025},
 	note = {[Accessed 22-11-2025]},
 }
+
   
 @misc{vueReactivity, 
   author={{Vue Developers}},
@@ -234,7 +235,6 @@ async function init() {
   const cite = await Cite.async(rawEntries)
   const entries = cite.data
 
-
   formattedEntries = cite
     .format('bibliography', { nosort: true, template: 'ieee' })
     .split('\n')
@@ -244,9 +244,7 @@ async function init() {
       number: index + 1,
       text,
     }))
-
 }
-
 
 export default {
   init,
