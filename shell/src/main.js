@@ -23,7 +23,7 @@ const VueWrapper = {
 const ReactWrapper = {
   template: '<div id="react-container"></div>',
   async mounted() {
-    await import("../../dist/react-app/react-entry.css");
+    await import("../../dist/vue-app/vue-entry.css");
     const { mount } = await import("../../dist/react-app/react-entry.js");
     this.reactUnmount = await mount("#react-container");
   },

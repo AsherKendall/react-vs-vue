@@ -76,10 +76,10 @@ export async function mount(selector, initialPath = '/') {
   hashListener = () => {
     const hash = window.location.hash || ''
     if (!hash.startsWith('#/vue')) return
-
+    console.log(hash)
     const match = hash.match(/^#\/vue(\/.*)?$/)
     const vueSubPath = match?.[1] || '/'
-
+    console.log(vueSubPath)
     updatingFromShell = true
     router.push(vueSubPath).catch(() => {})
     updatingFromShell = false

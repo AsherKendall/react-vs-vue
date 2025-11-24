@@ -77,20 +77,20 @@ const SomeComponent = memo(function SomeComponent(props) {
 function MyApp() {
   const [currentUser, setCurrentUser] = useState(null);
 
-  const login = useCallback((response) => {
+  const login = useCallback((response) =&gt; {
     storeCredentials(response.credentials);
     setCurrentUser(response.user);
   }, []);
 
-  const contextValue = useMemo(() => ({
+  const contextValue = useMemo(() =&gt; ({
     currentUser,
     login
   }), [currentUser, login]);
 
   return (
-    <AuthContext value={contextValue}>
-      <Page />
-    </AuthContext>
+    &lt;AuthContext; value={contextValue}&gt;
+      &lt;Page /&gt;
+    &lt;/AuthContext&gt;
   );
 }"
       />
@@ -173,13 +173,16 @@ function MyApp() {
         earlier.
       </p>
       <p>
-        Overall, it seems most of the trends seem to agree when compared with ones that employed
-        similar testing methods. One of the sources, which is a testing framework, gave a
-        measurement that gives a better overall idea in terms of performance using a weighted
-        geometric mean (where 1 is the lowest you can get). Using the mean keyed results of the
-        total duration of both the render and script runtimes, where smaller is better. React gets a
-        weighted geometric mean of 1.54, while Vue gets 1.29 when compared to a multitude of
-        JavaScript web frameworks {{ citations.getCitationNumber('krausestInteractiveResults') }}.
+        It seems most of the trends seem to agree when compared with ones that employed similar
+        testing methods. One of the sources, which is a testing framework, gave a measurement that
+        gives a better overall idea in terms of performance using a weighted geometric mean (where 1
+        is the lowest you can get). Using the mean keyed results of the total duration of both the
+        render and script runtimes, where smaller is better. React gets a weighted geometric mean of
+        1.54, while Vue gets 1.29 when compared to a multitude of JavaScript web frameworks
+        {{ citations.getCitationNumber('krausestInteractiveResults') }}. I would still, however,
+        consider your use case, as there are specific times when one outperformed the other. This
+        seems to line up with how each solution deals with the DOM and rendering, which should help
+        inform your decision.
       </p>
       <h2>Bundle Size</h2>
       <p>

@@ -1,18 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { fileURLToPath, URL } from "node:url";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/react-vs-vue/',
-  build: {
-    outDir: '../dist/react-app',
-    lib: {
-      entry: './src/main.jsx',
-      name: 'ReactApp',
-      formats: ['es'],
-      fileName: 'react-entry'
+  base: "/react-vs-vue/",
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
-    emptyOutDir: true
-  }
-})
+  },
+  build: {
+    outDir: "../dist/react-app",
+    lib: {
+      entry: "./src/main.jsx",
+      name: "ReactApp",
+      formats: ["es"],
+      fileName: "react-entry",
+    },
+    emptyOutDir: true,
+  },
+});

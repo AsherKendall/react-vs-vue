@@ -55,6 +55,17 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: '/examples',
+      meta: { hideAppBar: true },
+      children: [
+        {
+          path: 'list',
+          name: 'listExample',
+          component: () => import('@/examples/state/ListExample.vue'),
+        },
+      ],
+    },
   ],
 })
 

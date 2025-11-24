@@ -1,7 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { computed } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 import { Menubar } from 'primevue'
+
+const route = useRoute()
+const shouldShowAppBar = computed(() => !route.meta.hideAppBar)
 
 const items = [
   {
@@ -64,7 +68,7 @@ const items = [
 
 <template>
   <header>
-    <Menubar id="menubar" :model="items">
+    <Menubar v-if="shouldShowAppBar" id="menubar" :model="items">
       <template #item="{ item, props, hasSubmenu }">
         <RouterLink v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
           <a v-ripple :href="href" v-bind="props.action" @click="navigate">
