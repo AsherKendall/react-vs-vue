@@ -185,9 +185,10 @@ function MyApp() {
         inform your decision.
       </p>
       <h2>Bundle Size</h2>
+      <p>TODO: finish section</p>
       <p>
         React had a bundle size of 135 Kilobytes where vue had a bundle size of 126 kilobytes
-        {{ citations.getCitationNumber('ComparWebRends') }}.
+        {{ citations.getCitationNumber('ComparWebRend') }}.
       </p>
     </GenericPage>
   </main>
